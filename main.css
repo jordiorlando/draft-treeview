@@ -1,0 +1,23 @@
+.tree-view {
+  background: #fff;
+  font-size: 12px;
+  font-family: monospace;
+  /*max-width: 84ch;*/
+  padding: 16px;
+}
+.tree-view pre {
+  background: #f7f7f7;
+  font-family: inherit;
+  width: inherit;
+  margin: 0;
+  padding: 2ch;
+  border-radius: 4px;
+  box-sizing: border-box;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+.tree-view span {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+}
