@@ -20,17 +20,17 @@
       this.dom = this.dom || {};
       this.dom.treeView = treeView;
 
-      treeView.addEventListener('update', function(e) {
-        console.log('tree-view event:', e.detail.element);
-        e.detail.element.updateTreeView();
-      });
+      this.node.addEventListener('update', function(e) {
+        // e.stopPropagation();
+        e.currentTarget.element.updateTreeView();
+      }, false);
 
       return this.updateTreeView();
     },
 
     updateTreeView: function() {
       var replacer = function(key, value) {
-        if (key == 'dom' || key == 'parent' || key == 'id' || key == 'type') {
+        if (key == 'node' || key == 'dom' || key == 'doc' || key == 'parent' || key == 'id' || key == 'type') {
           return undefined;
         } else if (key == 'children') {
           var obj = {};
