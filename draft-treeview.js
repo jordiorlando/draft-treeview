@@ -20,7 +20,7 @@
       this.dom = this.dom || {};
       this.dom.treeView = treeView;
 
-      this.node.addEventListener('update', function(e) {
+      this.dom.node.addEventListener('update', function(e) {
         // e.stopPropagation();
         e.currentTarget.element.updateTreeView();
       }, false);
@@ -30,7 +30,7 @@
 
     updateTreeView: function() {
       var replacer = function(key, value) {
-        if (key == 'node' || key == 'dom' || key == 'doc' || key == 'parent' || key == 'id' || key == 'type') {
+        if (key == 'dom' || key == 'doc' || key == 'parent' || key == 'id' || key == 'type') {
           return undefined;
         } else if (key == 'children') {
           var obj = {};
