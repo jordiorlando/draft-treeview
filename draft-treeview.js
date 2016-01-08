@@ -1,10 +1,10 @@
 (function() {
   // TODO: allow treeview to be attached to any DOM element
   // TODO: make each element in the treeview into its own element
-  var treeview = {
-    require: [
-      Draft.json || 'json'
-    ],
+  var treeView = {
+    /*require: [
+      Draft.json
+    ],*/
 
     createTreeView: function() {
       var treeView = document.createElement('div');
@@ -49,15 +49,18 @@
       var longestLine = treeString.split('\n').reduce(function(a, b) {
         return a.length > b.length ? a : b;
       });
-      // FIXME: change 84 to a non-hardcoded value
+      // HACK: change 84 to a non-hardcoded value
       this.dom.treeView.style.width = Math.min(longestLine.length + 4, 84) + 'ch';
 
       return this.dom.treeView;
     }
   };
 
-  // Draft.extend(Draft.Container, treeview);
-  Draft.Container.extend(treeview);
+  // Draft.extend(Draft.Container, treeView);
+  Draft.Container.require('json');
+  Draft.Container.mixin(treeView);
+
+
 
   /*var css = document.createElement('link');
   css.setAttribute('rel', 'stylesheet');
