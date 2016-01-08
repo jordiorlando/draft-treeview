@@ -1,6 +1,6 @@
 .tree-view {
   background: #fff;
-  font-size: 12px;
+  /*font-size: 12px;*/
   font-family: monospace;
   /*max-width: 84ch;*/
   padding: 16px;
@@ -17,7 +17,7 @@
   white-space: pre-wrap;
 }
 .tree-view span {
-  font-size: 16px;
+  /*font-size: 16px;*/
   margin-bottom: 8px;
   display: block;
 }
