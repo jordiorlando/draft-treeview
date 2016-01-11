@@ -30,7 +30,7 @@
 
     updateTreeView: function() {
       var replacer = function(key, value) {
-        if (key == 'dom' || key == 'doc' || key == 'parent' || key == 'id' || key == 'type') {
+        if (key == 'dom' || key == 'doc' || key == 'parent' || key == 'id' || key == 'type' || key == '_events') {
           return undefined;
         } else if (key == 'children') {
           var obj = {};
