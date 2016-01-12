@@ -1,0 +1,23 @@
+{
+  "name": "draft-treeview",
+  "authors": [
+    "Jordi Pakey-Rodriguez <jordi.orlando@gmail.com>"
+  ],
+  "description": "A plugin for draft.js that renders nice tree views in the DOM",
+  "main": "dist/draft-treeview.min.js",
+  "keywords": [
+    "draft",
+    "parametric",
+    "svg",
+    "js",
+    "javascript"
+  ],
+  "license": "MIT",
+  "homepage": "draft.D1SC0te.ch",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}

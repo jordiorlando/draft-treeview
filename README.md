@@ -14,7 +14,7 @@ Include the plugin after draft.js in your html file:
   <script src="draft.js/dist/draft.min.js"></script>
 
   <link rel="stylesheet" href="draft-treeview/main.css">
-  <script src="draft-treeview/draft-treeview.js"></script>
+  <script src="draft-treeview/dist/draft-treeview.min.js"></script>
 </head>
 <body>
   <div id="view" style="width: 100%; height: 100%"></div>
