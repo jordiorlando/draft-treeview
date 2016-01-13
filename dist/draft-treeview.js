@@ -6,7 +6,7 @@
 * copyright Jordi Pakey-Rodriguez <jordi.orlando@gmail.com>
 * license MIT
 *
-* BUILT: Mon Jan 11 2016 21:46:15 GMT-0600 (CST)
+* BUILT: Tue Jan 12 2016 18:52:31 GMT-0600 (CST)
 */
 (function() {
   // TODO: allow treeview to be attached to any DOM element
@@ -45,7 +45,7 @@
         } else if (key == 'children') {
           var obj = {};
           for (let element of value) {
-            obj[Draft.domID(element)] = element;
+            obj[element.getID()] = element;
           }
           return obj;
         } else {
@@ -54,7 +54,7 @@
       };
 
       var treeString = this.stringify(replacer).split('"').join('');
-      this.dom.treeView.firstChild.textContent = Draft.domID(this) + ': ' + treeString;
+      this.dom.treeView.firstChild.textContent = this.getID() + ': ' + treeString;
 
       var longestLine = treeString.split('\n').reduce(function(a, b) {
         return a.length > b.length ? a : b;
