@@ -6,17 +6,21 @@
 * copyright Jordi Pakey-Rodriguez <jordi.orlando@gmail.com>
 * license MIT
 *
-* BUILT: Tue Jan 12 2016 18:52:31 GMT-0600 (CST)
+* BUILT: Thu Jan 14 2016 04:09:53 GMT-0600 (CST)
 */
 (function() {
   // TODO: allow treeview to be attached to any DOM element
   // TODO: make each element in the treeview into its own element
-  var treeView = {
-    /*require: [
-      Draft.json
-    ],*/
 
-    createTreeView: function() {
+  // Draft.extend(Draft.Container, treeView);
+  Draft.Container.require('json');
+
+  Draft.Container.mixin({
+    /* require: [
+      Draft.json
+    ], */
+
+    createTreeView() {
       var treeView = document.createElement('div');
       treeView.className = 'tree-view';
 
@@ -38,44 +42,43 @@
       return this.updateTreeView();
     },
 
-    updateTreeView: function() {
+    updateTreeView() {
       var replacer = function(key, value) {
-        if (key == 'dom' || key == 'doc' || key == 'parent' || key == 'id' || key == 'type' || key == '_events') {
+        if (key === 'doc' || key === 'parent' ||
+            key === 'dom' || key === 'type' ||
+            key === 'id' || key === '_events') {
           return undefined;
-        } else if (key == 'children') {
+        } else if (key === 'children') {
           var obj = {};
-          for (let element of value) {
-            obj[element.getID()] = element;
+          for (var element of value) {
+            obj[element.domID] = element;
           }
           return obj;
-        } else {
-          return value;
         }
+
+        return value;
       };
 
       var treeString = this.stringify(replacer).split('"').join('');
-      this.dom.treeView.firstChild.textContent = this.getID() + ': ' + treeString;
+      this.dom.treeView.firstChild.textContent = `${this.domID}: ${treeString}`;
 
       var longestLine = treeString.split('\n').reduce(function(a, b) {
         return a.length > b.length ? a : b;
       });
       // HACK: change 84 to a non-hardcoded value
-      this.dom.treeView.style.width = Math.min(longestLine.length + 4, 84) + 'ch';
+      this.dom.treeView.style.width =
+        `${Math.min(longestLine.length + 4, 84)}ch`;
 
       return this.dom.treeView;
     }
-  };
-
-  // Draft.extend(Draft.Container, treeView);
-  Draft.Container.require('json');
-  Draft.Container.mixin(treeView);
+  });
 
 
 
-  /*var css = document.createElement('link');
+  /* var css = document.createElement('link');
   css.setAttribute('rel', 'stylesheet');
   css.setAttribute('type', 'text/css');
   css.setAttribute('href', 'bower_components/draft-treeview/main.css');
 
-  document.getElementsByTagName('head')[0].appendChild(css);*/
+  document.getElementsByTagName('head')[0].appendChild(css); */
 })();
