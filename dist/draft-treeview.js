@@ -6,15 +6,13 @@
 * copyright Jordi Pakey-Rodriguez <jordi.orlando@gmail.com>
 * license MIT
 *
-* BUILT: Thu Jan 14 2016 17:52:45 GMT-0600 (CST)
+* BUILT: Fri Jan 15 2016 17:29:22 GMT-0600 (CST)
 */
 (function() {
   // TODO: allow treeview to be attached to any DOM element
   // TODO: make each element in the treeview into its own element
 
   // draft.extend(draft.Container, treeView);
-  draft.Container.require('json');
-
   draft.Container.mixin({
     /* require: [
       draft.json
@@ -43,23 +41,7 @@
     },
 
     updateTreeView() {
-      var replacer = function(key, value) {
-        if (key === 'doc' || key === 'parent' ||
-            key === 'dom' || key === 'type' ||
-            key === 'id' || key === '_events') {
-          return undefined;
-        } else if (key === 'children') {
-          var obj = {};
-          for (var element of value) {
-            obj[element.domID] = element;
-          }
-          return obj;
-        }
-
-        return value;
-      };
-
-      var treeString = this.stringify(replacer).split('"').join('');
+      var treeString = this.stringify().split('"').join('');
       this.dom.treeView.firstChild.textContent = `${this.domID}: ${treeString}`;
 
       var longestLine = treeString.split('\n').reduce(function(a, b) {
