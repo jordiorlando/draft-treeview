@@ -2,12 +2,12 @@
   // TODO: allow treeview to be attached to any DOM element
   // TODO: make each element in the treeview into its own element
 
-  // Draft.extend(Draft.Container, treeView);
-  Draft.Container.require('json');
+  // draft.extend(draft.Container, treeView);
+  draft.Container.require('json');
 
-  Draft.Container.mixin({
+  draft.Container.mixin({
     /* require: [
-      Draft.json
+      draft.json
     ], */
 
     createTreeView() {

@@ -6,18 +6,18 @@
 * copyright Jordi Pakey-Rodriguez <jordi.orlando@gmail.com>
 * license MIT
 *
-* BUILT: Thu Jan 14 2016 04:09:53 GMT-0600 (CST)
+* BUILT: Thu Jan 14 2016 17:52:45 GMT-0600 (CST)
 */
 (function() {
   // TODO: allow treeview to be attached to any DOM element
   // TODO: make each element in the treeview into its own element
 
-  // Draft.extend(Draft.Container, treeView);
-  Draft.Container.require('json');
+  // draft.extend(draft.Container, treeView);
+  draft.Container.require('json');
 
-  Draft.Container.mixin({
+  draft.Container.mixin({
     /* require: [
-      Draft.json
+      draft.json
     ], */
 
     createTreeView() {
