@@ -1,6 +1,6 @@
 # draft-treeview
 
-**draft-treeview** is a plugin for [draft.js](https://github.com/D1SC0tech/draft.js) that renders nice tree views in the DOM. Mainly meant for development.
+**draft-treeview** is a plugin for [draft.js](https://github.com/D1SC0tech/draft.js) that renders document trees in the DOM. Mainly meant for development.
 
 draft-treeview is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
@@ -17,22 +17,22 @@ Include the plugin after draft.js in your html file:
   <script src="draft-treeview/dist/draft-treeview.min.js"></script>
 </head>
 <body>
-  <div id="view" style="width: 100%; height: 100%"></div>
+  <div id="body" style="width: 100%; height: 100%"></div>
 </body>
 ```
 
 Write a new script and include it after your html content:
 
 ```javascript
-// Create a new draft document and add a page to it
+// Create a new draft document and add a group to it
 var doc = draft.doc('my_document');
-var page = doc.page('page_1').size(600, 400);
+var group = doc.group();
 
-// Add some shapes to the page
-var rect = page.rect(200, 150).fill('#18f');
-var circle = page.circle(50).fill('#f1c');
+// Add some shapes to the group
+var rect = group.rect(200, 150).fill('#18f');
+var circle = group.circle(50).fill('#f1c');
 
 // Use the draft-treeview plugin to render a tree
-var view = document.getElementById('view');
-view.appendChild(page.createTreeView());
+var body = document.getElementById('body');
+body.appendChild(group.tree());
 ```
