@@ -25,7 +25,7 @@ Write a new script and include it after your html content:
 
 ```javascript
 // Create a new draft document and add a group to it
-var doc = draft.doc('my_document');
+var doc = draft('my_document');
 var group = doc.group();
 
 // Add some shapes to the group
