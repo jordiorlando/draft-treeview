@@ -1,23 +1,38 @@
 {
   "name": "draft-treeview",
-  "authors": [
-    "Jordi Pakey-Rodriguez <jordi.orlando@gmail.com>"
-  ],
-  "description": "A plugin for draft.js that renders nice tree views in the DOM",
-  "main": "dist/draft-treeview.min.js",
+  "description": "A plugin for draft.js that renders document trees in the DOM",
   "keywords": [
     "draft",
+    "design",
     "parametric",
-    "svg",
+    "CAD",
     "js",
-    "javascript"
+    "javascript",
+    "tree"
   ],
-  "license": "MIT",
   "homepage": "draft.D1SC0te.ch",
+  "license": "MIT",
+  "authors": [
+    "Jordi Pakey-Rodriguez <jordi.orlando@hexa.io>"
+  ],
+  "main": "dist/draft-treeview.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/D1SC0tech/draft-treeview.git"
+  },
+  "dependencies": {
+    "draft.js": "^0.0.1"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "test"
+    "docs",
+    "example",
+    "spec",
+    "src",
+    "gulpfile.*",
+    "CHANGELOG.*",
+    "ROADMAP.*"
   ]
 }

@@ -1,21 +1,26 @@
 {
   "name": "draft-treeview",
   "version": "0.0.0",
-  "description": "A plugin for draft.js that renders nice tree views in the DOM",
+  "description": "A plugin for draft.js that renders document trees in the DOM",
   "keywords": [
     "draft",
+    "design",
     "parametric",
-    "svg",
+    "CAD",
     "js",
-    "javascript"
+    "javascript",
+    "tree"
   ],
-  "homepage": "https://github.com/D1SC0tech/draft-treeview",
+  "homepage": "http://draft.D1SC0te.ch",
   "license": "MIT",
-  "author": "Jordi Pakey-Rodriguez <jordi.orlando@gmail.com>",
-  "main": "dist/draft-treeview.min.js",
+  "author": "Jordi Pakey-Rodriguez <jordi.orlando@hexa.io>",
+  "main": "dist/draft-treeview.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/D1SC0tech/draft-treeview.git"
+  },
+  "peerDependencies": {
+    "draft.js": "^0.0.1"
   },
   "devDependencies": {
     "babel-plugin-transform-remove-console": "^6.3.13",
@@ -29,5 +34,20 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1"
   },
-  "private": true,
+  "bugs": {
+    "url": "https://github.com/D1SC0tech/draft-svg/issues"
+  },
+  "directories": {
+    "lib": "dist"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "gulp",
+    "preversion": "npm test && git checkout master && git merge --no-ff dev",
+    "version": "npm run build && git add --all dist",
+    "postversion": "git checkout dev && git merge --ff master",
+    "prepublish": "git checkout master",
+    "publish": "git push --all && git push --tags"
+  },
+  "private": true
 }
