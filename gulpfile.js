@@ -50,8 +50,11 @@ gulp.task('unify', ['clean'], function() {
 
 gulp.task('minify', ['unify'], function() {
   return gulp.src('dist/draft-treeview.js')
+    .pipe(babel({
+      plugins: ['transform-remove-console'],
+      presets: ['es2015']
+    }))
     .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(babel({presets: ['es2015']}))
       .pipe(uglify())
       .pipe(rename({suffix: '.min'}))
       .pipe(header(headerShort, {pkg: pkg}))
