@@ -1,4 +1,5 @@
 /* eslint dot-location: [2, "property"] */
+const del = require('del');
 
 const gulp = require('gulp');
 const babel = require('gulp-babel');
@@ -8,7 +9,6 @@ const rename = require('gulp-rename');
 const size = require('gulp-size');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
-const del = require('del');
 
 
 
@@ -36,7 +36,7 @@ var headerShort = [
 
 
 gulp.task('clean', function() {
-  del.sync(['dist/*']);
+  return del(['dist/*']);
 });
 
 gulp.task('unify', ['clean'], function() {
