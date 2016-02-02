@@ -12,6 +12,9 @@ const uglify = require('gulp-uglify');
 
 
 var pkg = require('./package.json');
+pkg.buildDate = Date();
+
+var src = 'draft-treeview.js';
 
 var headerLong = [
   '/*',
@@ -38,21 +41,23 @@ gulp.task('clean', function() {
   return del(['dist/*']);
 });
 
-gulp.task('unify', ['clean'], function() {
-  pkg.buildDate = Date();
-
-  return gulp.src('draft-treeview.js')
+gulp.task('es6', ['clean'], function() {
+  return gulp.src(src)
+    .pipe(rename({suffix: '-es6'}))
     .pipe(header(headerLong, {pkg: pkg}))
-    .pipe(gulp.dest('dist'))
-    .pipe(size({showFiles: true, title: 'Full'}));
+    .pipe(size({showFiles: true, title: 'Full'}))
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('minify', ['unify'], function() {
-  return gulp.src('dist/draft-treeview.js')
+gulp.task('build', ['clean'], function() {
+  return gulp.src(src)
     .pipe(babel({
       plugins: ['transform-remove-console'],
       presets: ['es2015']
     }))
+    .pipe(header(headerLong, {pkg: pkg}))
+    .pipe(size({showFiles: true, title: 'Full'}))
+    .pipe(gulp.dest('dist'))
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify())
       .pipe(rename({suffix: '.min'}))
@@ -63,4 +68,4 @@ gulp.task('minify', ['unify'], function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['clean', 'unify', 'minify'], function() {});
+gulp.task('default', ['clean', 'es6', 'build'], function() {});
