@@ -4,7 +4,6 @@ const del = require('del');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const header = require('gulp-header');
-const jasmine = require('gulp-jasmine');
 const rename = require('gulp-rename');
 const size = require('gulp-size');
 const sourcemaps = require('gulp-sourcemaps');
