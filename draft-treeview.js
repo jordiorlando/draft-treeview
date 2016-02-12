@@ -14,7 +14,7 @@
     simple.children[child.domID] = child;
   } */
 
-  draft.Container.mixin({
+  draft.Group.mixin({
     tree() {
       if (this._tree === undefined) {
         var domPrefix = `${this.domID}:tree`;
@@ -81,7 +81,7 @@
 
           // TODO: do a faster check than instanceof
           // Extra code to handle elements that have children
-          if (element instanceof draft.Container) {
+          if (element instanceof draft.Group) {
             let childNode = document.createElement('div');
             node.appendChild(childNode);
 
