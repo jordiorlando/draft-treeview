@@ -4,6 +4,20 @@
 
 draft-treeview is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
+## Installation
+
+Prebuilt distributions can be found on the [releases](https://github.com/D1SC0tech/draft-treeview/releases) page.
+
+You can also use [`Bower`](http://bower.io) or [`npm`](https://npmjs.com/package/draft-treeview):
+
+```sh
+# Install via Bower
+bower install draft-treeview
+
+# Install via npm
+npm install draft-treeview
+```
+
 ## Getting Started
 
 Include the plugin after draft.js in your html file:
