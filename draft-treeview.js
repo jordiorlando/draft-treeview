@@ -60,7 +60,7 @@
           var props = {};
           for (let prop in element.prop()) {
             let item = document.createElement('li');
-            item.textContent = `${prop}: ${element.prop(prop)}`;
+            item.textContent = `${prop}: ${String(element.prop(prop))}`;
             props[prop] = item;
             propList.appendChild(item);
           }
@@ -75,7 +75,7 @@
                 propList.appendChild(item);
               }
 
-              props[prop].textContent = `${prop}: ${val}`;
+              props[prop].textContent = `${prop}: ${String(val)}`;
             }
           });
 
