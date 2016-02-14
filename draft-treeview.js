@@ -10,9 +10,6 @@
   this.dom.tree.style.width =
     `${Math.min(longestLine.length + 4, 84)}ch`; */
 
-  /* for (let child of this.children) {
-    simple.children[child.domID] = child;
-  } */
 
   draft.Group.mixin({
     tree() {
@@ -128,13 +125,4 @@
       return this._tree;
     }
   });
-
-
-
-  /* var css = document.createElement('link');
-  css.setAttribute('rel', 'stylesheet');
-  css.setAttribute('type', 'text/css');
-  css.setAttribute('href', 'bower_components/draft-treeview/main.css');
-
-  document.getElementsByTagName('head')[0].appendChild(css); */
 })();
