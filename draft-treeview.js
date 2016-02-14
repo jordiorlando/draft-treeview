@@ -32,7 +32,10 @@
           node.className = 'draft-tree-element';
 
           var id = document.createElement('strong');
-          id.textContent = `${element.domID}`;
+          id.textContent = element.domID;
+          if (element.meta.name) {
+            id.textContent += ` (${element.meta.name})`;
+          }
           node.appendChild(id);
 
           var propNode = document.createElement('div');
