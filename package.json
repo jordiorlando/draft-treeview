@@ -11,7 +11,7 @@
     "javascript",
     "tree"
   ],
-  "homepage": "http://draft.D1SC0te.ch",
+  "homepage": "http://draft.js.org",
   "license": "MIT",
   "author": "Jordi Pakey-Rodriguez <jordi.orlando@hexa.io>",
   "main": "dist/draft-treeview.js",
