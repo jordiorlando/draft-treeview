@@ -13,7 +13,7 @@
   ],
   "homepage": "http://draft.js.org",
   "license": "MIT",
-  "author": "Jordi Pakey-Rodriguez <jordi.orlando@hexa.io>",
+  "author": "Jordi Pakey-Rodriguez <me@jordi.codes>",
   "main": "dist/draft-treeview.js",
   "repository": {
     "type": "git",
